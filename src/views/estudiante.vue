@@ -1,11 +1,6 @@
 <template>
     <div class="container">
-        <h1> LISTADO DE ESTUDIANTES
-            <button @click="newEstudiante()"
-            class="btn btn-success mx-2">
-            <font-awesome-icon icon="plus" />  
-            </button>
-        </h1>
+        <h1> LISTADO DE ESTUDIANTES</h1>
         <table class="table ">
             <thead>
                 <tr>
@@ -14,7 +9,6 @@
                     <th scope="col">Nombre estudiante</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Carrera</th>
-                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,10 +23,6 @@
                       class="btn btn-danger mx-2">
                       <font-awesome-icon icon="trash" />  
                     </button>
-                    <button @click="editCategories(estudiante.id_Estudiante)"
-                      class="btn btn-warning mx-2">
-                      <font-awesome-icon icon="pencil" />  
-                    </button>
                 </td>
                 </tr>
             </tbody>
@@ -41,6 +31,7 @@
 </template>
 <script>
 import axios from 'axios'
+import Swal from 'sweetalert2';
 
 export default{
     name:'Estudiantes',
@@ -67,14 +58,7 @@ export default{
                     }
                 })
         },
-        editEstudiante(id){
-            this.$router.push({name: 'EditarEstudiante', params:{ id: `${id}`}})
-        },
-        newEstudiante(){
-            this.$router.push({name: 'NewEstudiante'});
-        }
     },
-    
     mounted(){
         axios
         .get('http://127.0.0.1:8000/api/estudiante')
