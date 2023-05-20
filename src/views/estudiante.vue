@@ -43,7 +43,7 @@ export default{
     methods:{
         deleteEstudiante(codigo){
             Swal.fire({
-                title:`Do you want to delete the comuna with id ${codigo}?`,
+                title:`Do you want to delete the estudiantes with id ${codigo}?`,
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
             }).then((result) => {
